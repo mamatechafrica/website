@@ -1,0 +1,102 @@
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+.bg-black {
+  background-color: #000000 !important;
+}
+
+.bg-light {
+  background-color: #f5f5f5 !important;
+}
+
+.custom-header-height {
+  height: 600px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: none;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.custom-toggler .navbar-toggler-icon::before,
+.custom-toggler .navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: white;
+}
+
+.custom-toggler .navbar-toggler-icon::before {
+  top: 8px;
+}
+
+.custom-toggler .navbar-toggler-icon::after {
+  bottom: 8px;
+}
+
+.custom-toggler .navbar-toggler-icon span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-showcase-height {
+  height: 800px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.img-contain {
+  object-fit: contain;
+  height: 100%;
+}
+
+
+.custom-carousel-control-prev:hover .carousel-control-prev-icon,
+.custom-carousel-control-next:hover .carousel-control-next-icon {
+  background-color: #000; /* Dark color */
+}
+
+.navbar-nav .nav-link {
+  color: #000000 !important; /* Set default nav link color */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #cd1a29 !important; /* Change link color on hover */
+}
+
+.btn-danger {
+  background-color: #cd1a29 !important; /* Set custom red for the button */
+  border: none; /* Remove button border */
+}
+
+.text-black {
+  color: #000000 !important;
+}
+
+h2 {
+  color: #cd1a29; /* Optional: Red accent for all headings */
+}
+
+.bi {
+  font-size: 2rem; /* Adjust size as needed */
+  margin-right: 15px; /* Add spacing between the icon and text */
+  color: #4f4f4f; /* Customize the color */
+}
