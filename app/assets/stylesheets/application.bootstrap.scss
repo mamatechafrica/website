@@ -11,50 +11,20 @@
 }
 
 
+/* Ensure the navbar elements stay aligned in one row */
+// .navbar .container-fluid {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+// }
+
 .custom-header-height {
   height: 600px;
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
 }
-.custom-toggler .navbar-toggler-icon {
-    background-image: none;
-    border: 1px solid white;
-    border-radius: 5px;
-    width: 30px;
-    height: 30px;
-    position: relative;
-  }
-  
-  .custom-toggler .navbar-toggler-icon::before,
-  .custom-toggler .navbar-toggler-icon::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 2px;
-    background-color: white;
-  }
-  
-  .custom-toggler .navbar-toggler-icon::before {
-    top: 8px;
-  }
-  
-  .custom-toggler .navbar-toggler-icon::after {
-    bottom: 8px;
-  }
-  
-  .custom-toggler .navbar-toggler-icon span {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background-color: white;
-    position: absolute;
-    top: 80%;
-    left: 80%;
-    transform: translate(-50%, -50%);
-  }
+
 .custom-showcase-height {
   height: 800px;
   display: flex;
@@ -67,10 +37,6 @@
   height: 100%;
 }
 
-// .logo-class {
-//     width: 20%;
-//     height: 20%;
-// }
 .custom-carousel-control-prev:hover .carousel-control-prev-icon,
 .custom-carousel-control-next:hover .carousel-control-next-icon {
   background-color: #000; /* Dark color */
