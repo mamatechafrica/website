@@ -1,6 +1,3 @@
-Here's a README.md file that incorporates all the provided information:
-
-````markdown
 # Mama Tech
 
 ![Mama Tech Logo](mltlogo.png) 
@@ -46,7 +43,7 @@ To install the necessary gems, run:
 ```bash
 bundle install
 ```
-````
+
 
 ### Gems Overview
 
@@ -93,7 +90,3 @@ Visit `http://localhost:3000` to view the application.
 
 This project is licensed under the terms and conditions of Mama Tech. All rights reserved.
 
-```
-
-This README provides an introduction to Mama Tech, outlines the services and contact information, includes setup and gem instructions, and highlights tools used in development. Adjust any specific file paths or contact details as necessary for your setup.
-```
