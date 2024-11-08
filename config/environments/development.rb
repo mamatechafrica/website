@@ -41,11 +41,11 @@ Rails.application.configure do
 # place this code in config/environments/production.rb:
 config.action_mailer.delivery_method = :mailtrap
 config.action_mailer.mailtrap_settings = {
-  api_key: ENV.fetch('MAILTRAP_API_KEY')
+  api_key: ENV.fetch("MAILTRAP_API_KEY")
 }
 
-# then set the MAILTRAP_API_KEY environment variable
-# using your hosting solution.
+  # then set the MAILTRAP_API_KEY environment variable
+  # using your hosting solution.
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

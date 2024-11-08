@@ -12,5 +12,4 @@ class PagesController < ApplicationController
     flash[:notice] = "Your message has been sent successfully."
     redirect_to root_path
   end
-
 end

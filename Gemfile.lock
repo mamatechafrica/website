@@ -79,8 +79,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    brakeman (6.2.1)
-      racc
+    brakeman (3.7.2)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -313,7 +312,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  brakeman
+  brakeman (~> 3.3, >= 3.3.2)
   capybara
   cssbundling-rails
   debug
