@@ -3,7 +3,7 @@ Here's a README.md file that incorporates all the provided information:
 ````markdown
 # Mama Tech
 
-![Mama Tech Logo](app/assets/images/mltlogo.png) 
+![Mama Tech Logo](mltlogo.png) 
 
 ## Empowering Women Through Technology
 
