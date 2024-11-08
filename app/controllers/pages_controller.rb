@@ -1,20 +1,16 @@
 class PagesController < ApplicationController
   def home
-    @user = User.new
   end
 
-  def create_user
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to root_path, notice: 'User successfully created'
-    else
-      render :home # Re-render the home page if saving fails
-    end
+  def submit_contact
+    name = params[:name]
+    email = params[:email]
+    message = params[:message]
+
+    ContactMailer.contact_email(name, email, message).deliver_now
+
+    flash[:notice] = "Your message has been sent successfully."
+    redirect_to root_path
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :email)
-  end
 end

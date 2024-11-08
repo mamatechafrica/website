@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :job_boards
   root "pages#home"
 
   # Route for the contact form submission
-  post '/contact', to: 'pages#submit_contact'
+  post '/contact', to: "pages#submit_contact"
 
   # Health status for uptime monitors
   get "up" => "rails/health#show", as: :rails_health_check
