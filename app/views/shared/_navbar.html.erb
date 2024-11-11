@@ -8,11 +8,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <a class="nav-link" href="#about">About Us</a>
-                <a class="nav-link" href="#services">Services</a>
-                <a class="nav-link" href="">Job Board</a>
-                <!-- <a class="nav-link" href="#testimonials">Testimonials</a> -->
-                <a class="nav-link" href="#contact">Contact</a>
+                <%= link_to "About Us", root_path(anchor: "about"), class: "nav-link" %>
+                <%= link_to "Services", root_path(anchor: "services"), class: "nav-link" %>
+                <%= link_to "Job Board", job_boards_path, class: "nav-link" %>
+                <!-- <%= link_to "Testimonials", "#testimonials", class: "nav-link" %> -->
+                <%= link_to "Contact", root_path(anchor: "contact"), class: "nav-link" %>
             </div>
             <div class="navbar-nav ms-auto">
                 <a class="btn btn-danger text-white" href="#contact">Join Us</a>

@@ -20,11 +20,16 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <!-- <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>">
         <%= value %>
       </div>
-    <% end %>
+    <% end %> -->
     <%= render 'shared/navbar' %>
     <%= yield %>
   </body>
