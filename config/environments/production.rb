@@ -26,7 +26,7 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   address:              'sandbox.smtp.mailtrap.io',
   port:                 587,
-  domain:               'sandbox.smtp.mailtrap.io',
+  domain:               'mamatech.co.ke',
   user_name:            ENV['SMTP_USERNAME'],
   password:             ENV['SMTP_PASSWORD'],
   authentication:       'plain',
