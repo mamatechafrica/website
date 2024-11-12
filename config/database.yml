@@ -5,7 +5,7 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -20,7 +20,6 @@ test:
   <<: *default
   database: storage/test.sqlite3
 
-
 # SQLite3 write its data on the local filesystem, as such it requires
 # persistent disks. If you are deploying to a managed service, you should
 # make sure it provides disk persistence, as many don't.
@@ -29,4 +28,7 @@ test:
 # ensure the database is located in a persisted volume.
 production:
   <<: *default
+  database: mamatech_website_production
+  username: mamatech_website
+  password: <%= ENV['MAMATECH_WEBSITE_DATABASE_PASSWORD'] %>
   # database: path/to/persistent/storage/production.sqlite3
