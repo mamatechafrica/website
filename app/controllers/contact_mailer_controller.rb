@@ -1,4 +1,4 @@
-class ContactMailer < ApplicationMailer
+class ContactMailerController < ApplicationMailer
   default from: "no-reply@mamatech.co.ke"
 
   def contact_email(name, email, message)
