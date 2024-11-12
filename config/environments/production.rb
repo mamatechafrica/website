@@ -21,6 +21,16 @@ Rails.application.configure do
   config.action_mailer.mailtrap_settings = {
   api_key: ENV.fetch("MAILTRAP_API_KEY")
 }
+
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  user_name: ENV['MAILTRAP_USERNAME'],
+  password: ENV['MAILTRAP_PASSWORD'],
+  address: 'smtp.mailtrap.io',
+  domain: 'smtp.mailtrap.io',
+  port: '2525',
+  authentication: :cram_md5
+}
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
