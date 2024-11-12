@@ -5,6 +5,9 @@ class ContactMailerController < ApplicationMailer
     @name = name
     @message = message
     @reply_to = email
-    mail(to: "naijeria@mamatech.co.ke", subject: "New Contact Form Submission", reply_to: email)
+    mail(
+      to: "naijeria@mamatech.co.ke", 
+      from: email,
+      subject: "New Contact Form Submission", reply_to: email)
   end
 end
