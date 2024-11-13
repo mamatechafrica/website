@@ -47,19 +47,19 @@ config.action_mailer.mailtrap_settings = {
 
 config.action_mailer.delivery_method = :mailtrap
 config.action_mailer.mailtrap_settings = {
-  api_key: '********0d7b',
+  api_key: "********0d7b",
   sandbox: true,
-  inbox_id: 3263693,
+  inbox_id: 3263693
 }
-# Looking to send emails in production? Check out our Email API/SMTP product!
-# config.action_mailer.delivery_method = :smtp
-# config.action_mailer.smtp_settings = {
-#   user_name: 'd47046b342d07a',
-#   password: '28ed2988abaa52',
-#   address: 'sandbox.smtp.mailtrap.io',
-#   host: 'sandbox.smtp.mailtrap.io',
-#   port: '2525',
-#   authentication: :login
+  # Looking to send emails in production? Check out our Email API/SMTP product!
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   user_name: 'd47046b342d07a',
+  #   password: '28ed2988abaa52',
+  #   address: 'sandbox.smtp.mailtrap.io',
+  #   host: 'sandbox.smtp.mailtrap.io',
+  #   port: '2525',
+  #   authentication: :login
 
   # then set the MAILTRAP_API_KEY environment variable
   # using your hosting solution.

@@ -2,7 +2,6 @@ require "active_support/core_ext/integer/time"
 Rails.logger ||= Logger.new(STDOUT)
 
 Rails.application.configure do
-
   # Ensure that logger is set up properly
   config.logger = Logger.new(STDOUT)
   config.log_level = :info
@@ -29,9 +28,9 @@ Rails.application.configure do
 
 config.action_mailer.delivery_method = :mailtrap
 config.action_mailer.mailtrap_settings = {
-  api_key: '********0d7b',
+  api_key: "********0d7b",
   sandbox: true,
-  inbox_id: 3263693,
+  inbox_id: 3263693
 }
 
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
