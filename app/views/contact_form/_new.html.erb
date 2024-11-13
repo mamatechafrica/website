@@ -1,7 +1,13 @@
 <!-- Contact Form -->
 <section id="contact" class="py-5">
     <div class="container">
-        <h2 class="text-center mb-4 text-black">Get in Touch</h2>
+        <h2 class="text-center mb-4 text-black">Get in Touch
+            <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>">
+                <%= value %>
+            </div>
+            <% end %>
+        </h2>
         <div class="col-md-8 offset-md-2">
             <%= form_with url: '/contact', method: 'post', local: true do |f| %>
             <div class="form-group mb-3">

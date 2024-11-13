@@ -19,13 +19,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-    <% end %>
+  <body> 
     <%= render 'shared/navbar' %>
+
     <%= yield %>
   </body>
 </html>
