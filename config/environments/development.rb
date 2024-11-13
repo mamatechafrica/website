@@ -60,7 +60,7 @@ config.action_mailer.mailtrap_settings = {
 #   host: 'sandbox.smtp.mailtrap.io',
 #   port: '2525',
 #   authentication: :login
-}
+
   # then set the MAILTRAP_API_KEY environment variable
   # using your hosting solution.
 
