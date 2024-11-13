@@ -10,18 +10,30 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: mamatech_website_development
-  username: your_pg_username # replace with the PostgreSQL username you created
-  password: your_pg_password # replace with the PostgreSQL password
+  adapter: postgresql
+  encoding: unicode
+  database: mamatech_development
+  username: nashthedev
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   host: localhost
+  port: 5432
+  # database: mamatech_website_development
+  # username: pg_admin # replace with the PostgreSQL username you created
+  # password: <%= ENV['POSTGRES_PASSWORD'] %> # replace with the PostgreSQL password
+  # host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: storage/test.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: mamatech_development
+  username: nashthedev
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: localhost
+  port: 5432
 
 # SQLite3 write its data on the local filesystem, as such it requires
 # persistent disks. If you are deploying to a managed service, you should

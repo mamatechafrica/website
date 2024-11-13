@@ -39,11 +39,21 @@ Rails.application.configure do
 
 
 # place this code in config/environments/production.rb:
-config.action_mailer.delivery_method = :mailtrap
-config.action_mailer.mailtrap_settings = {
-  api_key: ENV.fetch("MAILTRAP_API_KEY")
-}
+# config.action_mailer.delivery_method = :mailtrap
+# config.action_mailer.mailtrap_settings = {
+#   api_key: ENV.fetch("MAILTRAP_API_KEY")
+# }
 
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address:              'smtp.yourserver.com',
+  port:                 25,
+  domain:               'yourrubyapp.com',
+  user_name:            '<username>',
+  password:             '<password>',
+  authentication:       'plain',
+  enable_starttls_auto: true
+}
   # then set the MAILTRAP_API_KEY environment variable
   # using your hosting solution.
 
