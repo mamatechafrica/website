@@ -31,9 +31,9 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   address:              'sandbox.smtp.mailtrap.io',
   port:                 587,
-  domain:               'mamatech.co.ke',
-  smtp_user_name:            ENV['SMTP_USERNAME'],
-  smtp_password:             ENV['SMTP_PASSWORD'],
+  domain:               'gmail.com',
+  smtp_user_name:        ENV['SMTP_USER_NAME'],
+  smtp_password:         ENV['SMTP_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true
 }
