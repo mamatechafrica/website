@@ -9,6 +9,6 @@ class ContactMailerController < ApplicationMailer
     mail(
       to: "naijeria@mamatech.co.ke",
       from: email,
-      subject: "New Contact Form Submission", reply_to: email)
+      subject: "#{topic}", reply_to: email)
   end
 end
