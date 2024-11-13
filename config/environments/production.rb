@@ -39,7 +39,7 @@ config.action_mailer.smtp_settings = {
 }
 
 config.action_mailer.default_url_options = { host: 'sandbox.smtp.mailtrap.io' }
-  Rails.logger&.info "SMTP Username: #{ENV['USERNAME']}"
+  Rails.logger&.info "SMTP User_name: #{ENV['USER_NAME']}"
   Rails.logger&.info "SMTP Password: #{ENV['PASSWORD']}"
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).

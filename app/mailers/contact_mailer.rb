@@ -3,6 +3,7 @@ class ContactMailer < ApplicationMailer
 
   def contact_email(name, email, message)
     @name = name
+    @email = email
     @message = message
     mail(to: "naijeria@mamatech.co.ke", subject: "New Contact Form Submission", reply_to: email)
   end
