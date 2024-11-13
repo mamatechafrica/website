@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "info@demomailtrap.com"
+  default from: "info@mamatech.co.ke"
   layout "mailer"
 end
