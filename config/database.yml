@@ -17,6 +17,7 @@ development:
   password: <%= ENV['DATABASE_PASSWORD'] %>
   host: localhost
   port: 5432
+
   # database: mamatech_website_development
   # username: pg_admin # replace with the PostgreSQL username you created
   # password: <%= ENV['POSTGRES_PASSWORD'] %> # replace with the PostgreSQL password

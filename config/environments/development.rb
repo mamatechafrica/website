@@ -44,15 +44,15 @@ Rails.application.configure do
 #   api_key: ENV.fetch("MAILTRAP_API_KEY")
 # }
 
+# Looking to send emails in production? Check out our Email API/SMTP product!
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
-  address:              'smtp.yourserver.com',
-  port:                 25,
-  domain:               'yourrubyapp.com',
-  user_name:            '<username>',
-  password:             '<password>',
-  authentication:       'plain',
-  enable_starttls_auto: true
+  user_name: 'd47046b342d07a',
+  password: '28ed2988abaa52',
+  address: 'sandbox.smtp.mailtrap.io',
+  host: 'sandbox.smtp.mailtrap.io',
+  port: '2525',
+  authentication: :login
 }
   # then set the MAILTRAP_API_KEY environment variable
   # using your hosting solution.
