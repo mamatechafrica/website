@@ -32,15 +32,15 @@ config.action_mailer.smtp_settings = {
   address:              'sandbox.smtp.mailtrap.io',
   port:                 587,
   domain:               'mamatech.co.ke',
-  smtp_user_name:        ENV['SMTP_USER_NAME'],
-  smtp_password:         ENV['SMTP_PASSWORD'],
+  user_name:        ENV['USER_NAME'],
+  password:         ENV['PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true
 }
 
 config.action_mailer.default_url_options = { host: 'sandbox.smtp.mailtrap.io' }
-  Rails.logger&.info "SMTP Username: #{ENV['SMTP_USERNAME']}"
-  Rails.logger&.info "SMTP Password: #{ENV['SMTP_PASSWORD']}"
+  Rails.logger&.info "SMTP Username: #{ENV['USERNAME']}"
+  Rails.logger&.info "SMTP Password: #{ENV['PASSWORD']}"
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
