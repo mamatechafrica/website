@@ -6,3 +6,7 @@ class ContactFormController < ApplicationController
     redirect_to root_path
   end
 end
+def submit_contact
+  # Your contact form handling code
+  ContactMailer.contact_email(contact_params).deliver_now
+end
