@@ -19,8 +19,7 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Add email sending functionality with Mailtrap.
-gem "mailtrap"
+
 
 gem "pg"
 
@@ -39,7 +38,10 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 gem "bootstrap-icons", "~> 1.0.14"
+gem "dotenv-rails"
 
+
+gem 'mailtrap'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -66,4 +68,4 @@ group :test do
   gem "selenium-webdriver", "~> 4.26"
 end
 
-gem "dotenv-rails"
+

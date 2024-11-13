@@ -41,25 +41,21 @@ Rails.application.configure do
 # place this code in config/environments/production.rb:
 config.action_mailer.delivery_method = :mailtrap
 config.action_mailer.mailtrap_settings = {
-  api_key: ENV.fetch("MAILTRAP_API_KEY")
+  api_key: ENV.fetch('MAILTRAP_API_KEY')
 }
 
 
-config.action_mailer.delivery_method = :mailtrap
-config.action_mailer.mailtrap_settings = {
-  api_key: "********0d7b",
-  sandbox: true,
-  inbox_id: 3263693
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  user_name: 'd47046b342d07a',
+  password: '28ed2988abaa52',
+  :address => 'sandbox.smtp.mailtrap.io',
+  :domain => 'sandbox.smtp.mailtrap.io',
+  :port => '2525',
+  :authentication => :cram_md5
 }
-  # Looking to send emails in production? Check out our Email API/SMTP product!
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   user_name: 'd47046b342d07a',
-  #   password: '28ed2988abaa52',
-  #   address: 'sandbox.smtp.mailtrap.io',
-  #   host: 'sandbox.smtp.mailtrap.io',
-  #   port: '2525',
-  #   authentication: :login
+# Looking to send emails in production? Check out our Email API/SMTP product!
+
 
   # then set the MAILTRAP_API_KEY environment variable
   # using your hosting solution.

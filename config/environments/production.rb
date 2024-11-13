@@ -28,11 +28,16 @@ Rails.application.configure do
   api_key: ENV.fetch("MAILTRAP_API_KEY")
 }
 
-config.action_mailer.delivery_method = :mailtrap
-config.action_mailer.mailtrap_settings = {
-  api_key: "********0d7b",
-  sandbox: true,
-  inbox_id: 3263693
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  user_name: 'd47046b342d07a',
+  password: '28ed2988abaa52',
+  address: 'live.smtp.mailtrap.io',
+  host: 'live.smtp.mailtrap.io',
+  domain: 'live.smtp.mailtrap.io',
+  port: '587',
+  authentication: 'plain',
+  enable_starttls_auto: true
 }
 
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
