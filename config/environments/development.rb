@@ -39,7 +39,7 @@ Rails.application.configure do
 
 
 
-# Looking to send emails in production? Check out our Email API/SMTP product!
+  # Looking to send emails in production? Check out our Email API/SMTP product!
 
 
   # then set the MAILTRAP_API_KEY environment variable
@@ -54,13 +54,13 @@ Rails.application.configure do
 
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
-  domain: 'demomailtrap.com',
-  user_name: ENV.fetch('MAILTRAP_SMTP_USER'),
-  password: ENV.fetch('MAILTRAP_SMTP_PASSWORD'),
-  address: 'live.smtp.mailtrap.io',
-  host: 'live.smtp.mailtrap.io',
-  port: '587',
-  authentication: 'plain',
+  domain: "demomailtrap.com",
+  user_name: ENV.fetch("MAILTRAP_SMTP_USER"),
+  password: ENV.fetch("MAILTRAP_SMTP_PASSWORD"),
+  address: "live.smtp.mailtrap.io",
+  host: "live.smtp.mailtrap.io",
+  port: "587",
+  authentication: "plain",
   enable_starttls_auto: true
 }
 

@@ -41,7 +41,7 @@ gem "bootstrap-icons", "~> 1.0.14"
 gem "dotenv-rails"
 
 
-gem 'mailtrap'
+gem "mailtrap"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -67,5 +67,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver", "~> 4.26"
 end
-
-

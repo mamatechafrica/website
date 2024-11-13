@@ -2,14 +2,24 @@
 <section id="contact" class="py-5">
     <div class="container">
         <h2 class="text-center mb-4 text-black">Get in Touch
-            <% flash.each do |key, value| %>
+            <!-- <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>">
                 <%= value %>
             </div>
-            <% end %>
+            <% end %> -->
         </h2>
         <div class="col-md-8 offset-md-2">
-            <%= form_with url: '/contact', method: 'post', local: true do |f| %>
+            <div class="contact-info mb-4 text-center">
+                <p>
+                    <i class="bi bi-envelope"></i> 
+                    <a href="mailto:info@mamatech.co.ke">info@mamatech.co.ke</a>
+                </p>
+                    <p>
+                    <i class="bi bi-twitter"></i> 
+                    <a href="https://x.com/NaijeriaToweett" target="_blank">@MamaTech</a>
+                </p>
+            </div>
+            <!-- <%= form_with url: '/contact', method: 'post', local: true do |f| %>
             <div class="form-group mb-3">
                 <%= f.text_field :name, class: "form-control", placeholder: "Enter your name" %>
             </div>
@@ -23,7 +33,7 @@
                 <%= f.text_area :message, class: "form-control", rows: 3, placeholder: "Your message" %>
             </div>
             <%= f.submit "Submit", class: "btn btn-danger" %>
-        <% end %>        
+        <% end %>         -->
         </div>
     </div>
 </section>
