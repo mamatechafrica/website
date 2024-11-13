@@ -11,7 +11,10 @@ default: &default
 
 development:
   <<: *default
-  database: storage/development.sqlite3
+  database: mamatech_website_development
+  username: your_pg_username # replace with the PostgreSQL username you created
+  password: your_pg_password # replace with the PostgreSQL password
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

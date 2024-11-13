@@ -1,6 +1,10 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+
+  # Ensure that logger is set up properly
+  config.logger = Logger.new(STDOUT)
+  config.log_level = :info
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -27,8 +31,8 @@ config.action_mailer.smtp_settings = {
   address:              'sandbox.smtp.mailtrap.io',
   port:                 587,
   domain:               'mamatech.co.ke',
-  user_name:            ENV['SMTP_USERNAME'],
-  password:             ENV['SMTP_PASSWORD'],
+  smtp_user_name:            ENV['SMTP_USERNAME'],
+  smtp_password:             ENV['SMTP_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true
 }
