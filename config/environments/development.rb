@@ -45,24 +45,17 @@ Rails.application.configure do
 # }
 
 # Looking to send emails in production? Check out our Email API/SMTP product!
-# config.action_mailer.delivery_method = :smtp
-# config.action_mailer.smtp_settings = {
-#   user_name: 'd47046b342d07a',
-#   password: '28ed2988abaa52',
-#   address: 'sandbox.smtp.mailtrap.io',
-#   host: 'sandbox.smtp.mailtrap.io',
-#   port: '2525',
-#   authentication: :login
-# }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  user_name: 'd47046b342d07a',
+  password: '28ed2988abaa52',
+  address: 'sandbox.smtp.mailtrap.io',
+  host: 'sandbox.smtp.mailtrap.io',
+  port: '2525',
+  authentication: :login
+}
   # then set the MAILTRAP_API_KEY environment variable
   # using your hosting solution.
-
-  config.action_mailer.delivery_method = :mailtrap
-  config.action_mailer.mailtrap_settings = {
-    api_key: '********0d7b',
-    sandbox: true,
-    inbox_id: 3263693,
-  }
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

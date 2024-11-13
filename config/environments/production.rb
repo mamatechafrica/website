@@ -27,20 +27,13 @@ Rails.application.configure do
   api_key: ENV.fetch("MAILTRAP_API_KEY")
 }
 
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  address:              'sandbox.smtp.mailtrap.io',
-  port:                 587,
-  domain:               'mamatech.co.ke',
-  user_name:        ENV['USER_NAME'],
-  password:         ENV['PASSWORD'],
-  authentication:       'plain',
-  enable_starttls_auto: true
+config.action_mailer.delivery_method = :mailtrap
+config.action_mailer.mailtrap_settings = {
+  api_key: '********0d7b',
+  sandbox: true,
+  inbox_id: 3263693,
 }
 
-config.action_mailer.default_url_options = { host: 'sandbox.smtp.mailtrap.io' }
-  Rails.logger&.info "SMTP User_name: #{ENV['USER_NAME']}"
-  Rails.logger&.info "SMTP Password: #{ENV['PASSWORD']}"
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
