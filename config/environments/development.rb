@@ -38,22 +38,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
 
-# place this code in config/environments/production.rb:
-config.action_mailer.delivery_method = :mailtrap
-config.action_mailer.mailtrap_settings = {
-  api_key: ENV.fetch('MAILTRAP_API_KEY')
-}
 
-
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  user_name: 'd47046b342d07a',
-  password: '28ed2988abaa52',
-  :address => 'sandbox.smtp.mailtrap.io',
-  :domain => 'sandbox.smtp.mailtrap.io',
-  :port => '2525',
-  :authentication => :cram_md5
-}
 # Looking to send emails in production? Check out our Email API/SMTP product!
 
 
@@ -66,6 +51,18 @@ config.action_mailer.smtp_settings = {
   # Disable caching for Action Mailer templates even if Action Controller
   # caching is enabled.
   config.action_mailer.perform_caching = false
+
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  domain: 'demomailtrap.com',
+  user_name: ENV.fetch('MAILTRAP_SMTP_USER'),
+  password: ENV.fetch('MAILTRAP_SMTP_PASSWORD'),
+  address: 'live.smtp.mailtrap.io',
+  host: 'live.smtp.mailtrap.io',
+  port: '587',
+  authentication: 'plain',
+  enable_starttls_auto: true
+}
 
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 

@@ -1,13 +1,13 @@
 class ContactMailer < ApplicationMailer
-  default from: "no-reply@mamatech.co.ke"
+  default to: "naijeria@gmail.com",
+  from: "no-reply@demomailtrap.com"
 
-  def contact_email(name, email, message)
-    @name = name
-    @email = email
-    @message = message
-    
-    mail(to: "naijeria@mamatech.co.ke", subject: "New Contact Form Submission", 
-    
-    reply_to: email)
+  def contact_email(name, email, topic, message)
+    mail(
+      "reply-to": email_address_with_name(email, "#{name}"),
+      topic: "#{topic}",
+      body: message
+    )
+
   end
 end
