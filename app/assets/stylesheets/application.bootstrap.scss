@@ -1,7 +1,6 @@
 @import "bootstrap/scss/bootstrap";
-@import "bootstrap-icons/font/bootstrap-icons"; /* Only this one is needed */
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
-/* Your custom styles */
 .bg-black {
   background-color: #000000 !important;
 }
