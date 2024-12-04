@@ -19,10 +19,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body> 
+  <div class="body-container"> 
     <%= render 'shared/navbar' %>
-    <br>
-    <%= yield %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
-  </body>
+  </>
 </html>
