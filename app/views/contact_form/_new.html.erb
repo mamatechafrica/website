@@ -4,14 +4,10 @@
         <div class=" offset-md-2">
             <div class="contact-info mb-4 text-center">
                 <p>
-                    <i class="bi bi-envelope"></i> 
-                    <a href="mailto:info@mamatech.co.ke">info@mamatech.co.ke</a>
-                |
-                    <i class="bi bi-twitter"></i> 
-                    <a href="https://x.com/NaijeriaToweett" target="_blank">@ MamaTech</a>
+                    <i class="bi bi-twitter"></i><a href="https://x.com/NaijeriaToweett" target="_blank" style="text-decoration: none;">@MamaTech</a>
                 </p>
             </div>
-            <!-- <%= form_with url: '/contact', method: 'post', local: true do |f| %>
+            <%= form_with url: 'https://formspree.io/f/xldezajb', method: 'post', local: true do |f| %>
             <div class="form-group mb-3">
                 <%= f.text_field :name, class: "form-control", placeholder: "Enter your name" %>
             </div>
@@ -19,13 +15,13 @@
                 <%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
             </div>
             <div class="form-group mb-3">
-                <%= f.select :topic, options_for_select(["Join Us", "Mentorship Inquiry", "Need Help with a Project", "Request More Information", "General Inquiry", "Partnership Opportunities"]), { prompt: "How can we help - Select a Topic" }, { class: "form-select" } %>
+                <%= f.select :topic, options_for_select(["Joining Mama Tech", "Mentorship Inquiry", "I need Help with a Project", "Please share more information", "General Inquiry", "Seeking Partnership Opportunities"]), { prompt: "How can we help - Select a Topic" }, { class: "form-select" } %>
             </div>
             <div class="form-group mb-3">
                 <%= f.text_area :message, class: "form-control", rows: 3, placeholder: "Your message" %>
             </div>
             <%= f.submit "Submit", class: "btn btn-danger" %>
-        <% end %>         -->
+        <% end %>        
         </div>
     </div>
 </section>

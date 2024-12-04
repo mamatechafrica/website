@@ -42,6 +42,15 @@ p {
   background-color: #000;
 }
 
+@media (max-width: 768px) {
+  .navbar-brand img {
+    max-width: 50px;
+  }
+  .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+}
+
 .navbar-nav .nav-link {
   color: #000000 !important;
 }
@@ -71,4 +80,8 @@ h2 {
   font-size: 2rem; /* Adjust size as needed */
   margin-right: 15px; /* Add spacing between the icon and text */
   color: #4f4f4f; /* Customize the color */
+}
+
+a {
+  text-decoration: none;
 }
