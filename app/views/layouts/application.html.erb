@@ -6,6 +6,15 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61CS8JFZ5K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-61CS8JFZ5K');
+    </script>
 
     <%= yield :head %>
 
@@ -19,10 +28,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body> 
+  <div class="body-container"> 
     <%= render 'shared/navbar' %>
-    <br>
-    <%= yield %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
-  </body>
+  </>
 </html>
