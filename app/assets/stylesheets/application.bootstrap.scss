@@ -38,6 +38,18 @@
   }
 }
 
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-info a i {
+  font-size: 40px;
+  text-decoration: none;
+}
+
 // .bg-black {
 //   background-color: #000000 !important;
 // }
