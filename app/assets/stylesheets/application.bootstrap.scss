@@ -4,7 +4,7 @@
 .body-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 120vh;
 }
 
 // .main-content .job-boards-page {
@@ -33,7 +33,7 @@
     flex-direction: column;
   }
 
-  #main-content {
+  .main-content {
     flex: 1; /* Push the footer to the bottom */
   }
 }
@@ -129,8 +129,4 @@
 //   font-size: 2rem; /* Adjust size as needed */
 //   margin-right: 15px; /* Add spacing between the icon and text */
 //   color: #4f4f4f; /* Customize the color */
-// }
-
-// a {
-//   text-decoration: none;
 // }
