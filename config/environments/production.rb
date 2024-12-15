@@ -23,12 +23,12 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
 
-# Add following to your ActionMailer configuration
-# (in Rails projects located in `config/$ENVIRONMENT.rb`)
-config.action_mailer.delivery_method = :mailtrap
-config.action_mailer.mailtrap_settings = {
-  api_key: ENV.fetch("MAILTRAP_API_KEY")
-}
+  # Add following to your ActionMailer configuration
+  # (in Rails projects located in `config/$ENVIRONMENT.rb`)
+  # config.action_mailer.delivery_method = :mailtrap
+  # config.action_mailer.mailtrap_settings = {
+  #   api_key: ENV.fetch("MAILTRAP_API_KEY")
+  # }
 
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
