@@ -1,22 +1,11 @@
-@import "bootstrap/scss/bootstrap";
-@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "bootstrap/scss/bootstrap"; // Include the main Bootstrap SCSS file
+@import "bootstrap-icons/font/bootstrap-icons.css"; // Include Bootstrap Icons
 
 .body-container {
   display: flex;
   flex-direction: column;
   min-height: 120vh;
 }
-
-// .main-content .job-boards-page {
-//   flex: 1;
-// }
-
-// .main-content {
-//   flex: 1;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-// }
 
 .footer {
   margin-top: auto;
@@ -32,10 +21,6 @@
     display: flex;
     flex-direction: column;
   }
-
-  .main-content {
-    flex: 1; /* Push the footer to the bottom */
-  }
 }
 
 .contact-info {
@@ -50,83 +35,89 @@
   text-decoration: none;
 }
 
-// .bg-black {
-//   background-color: #000000 !important;
-// }
+.bg-light {
+  background-color: #f5f5f5 !important;
+}
 
-// .bg-light {
-//   background-color: #f5f5f5 !important;
-// }
+.custom-bg-danger {
+  background-color: #cd1a29;
+}
 
-// .alert {
-//   color: green; /* Set default alert text color */
-// }
+.alert {
+  color: green; /* Set default alert text color */
+}
 
-// p {
-//   font-size: 1.25rem; /* Adjust size as needed */
-//   line-height: 1.6; /* Optional: improves readability */
-// }
+p {
+  font-size: 1.25rem; /* Adjust size as needed */
+  line-height: 1.6; /* Optional: improves readability */
+}
 
-// .custom-header-height {
-//   height: 600px;
-//   display: flex;
-//   justify-content: center; /* Center horizontally */
-//   align-items: center; /* Center vertically */
-// }
+.custom-header-height {
+  height: 600px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
 
-// .custom-showcase-height {
-//   height: 800px;
-//   display: flex;
-//   justify-content: center; /* Center horizontally */
-//   align-items: center; /* Center vertically */
-// }
+.custom-showcase-height {
+  height: 800px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
 
-// .img-contain {
-//   object-fit: contain;
-//   height: 100%;
-// }
+.img-contain {
+  object-fit: contain;
+  height: 100%;
+}
 
-// .custom-carousel-control-prev:hover .carousel-control-prev-icon,
-// .custom-carousel-control-next:hover .carousel-control-next-icon {
-//   background-color: #000;
-// }
+.custom-carousel-control-prev:hover .carousel-control-prev-icon,
+.custom-carousel-control-next:hover .carousel-control-next-icon {
+  background-color: #000;
+}
 
-// @media (max-width: 768px) {
-//   .navbar-brand img {
-//     max-width: 50px;
-//   }
-//   .navbar-nav .nav-link {
-//     font-size: 14px;
-//   }
-// }
+@media (max-width: 768px) {
+  .navbar-brand img {
+    max-width: 50px;
+  }
+  .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+}
 
-// .navbar-nav .nav-link {
-//   color: #000000 !important;
-// }
+.navbar-nav .nav-link {
+  color: #000000 !important;
+}
 
-// .navbar-nav .nav-link:hover {
-//   color: #cd1a29 !important;
-// }
+.navbar-nav .nav-link:hover {
+  color: #cd1a29 !important;
+}
 
-// .navbar-nav .nav-link.active {
-//   border-bottom: 2px solid #cd1a29;
-// }
+.navbar-nav .nav-link.active {
+  border-bottom: 2px solid #cd1a29;
+}
 
-// .btn-danger {
-//   background-color: #cd1a29 !important;
-//   border: none;
-// }
+.btn-danger {
+  background-color: #cd1a29 !important;
+  border: none;
+}
 
-// .text-black {
-//   color: #000000 !important;
-// }
+.text-black {
+  color: #000000 !important;
+}
 
-// h2 {
-//   color: #cd1a29;
-// }
+h2 {
+  color: #cd1a29;
+}
 
-// .bi {
-//   font-size: 2rem; /* Adjust size as needed */
-//   margin-right: 15px; /* Add spacing between the icon and text */
-//   color: #4f4f4f; /* Customize the color */
-// }
+.bi {
+  font-size: 2rem; /* Adjust size as needed */
+  margin-right: 15px; /* Add spacing between the icon and text */
+  color: #4f4f4f; /* Customize the color */
+}
+
+.card-body-mission {
+  color: #fff; /* Text color */
+  background-color: #dc3545; /* Danger color */
+  border-radius: 0.25rem; /* Bootstrap rounded utility */
+}
