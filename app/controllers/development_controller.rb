@@ -1,3 +1,3 @@
 class DevelopmentController < ApplicationController
-  # Controller actions go here
+  # Your actions here
 end
