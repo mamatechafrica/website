@@ -1,0 +1,25 @@
+<div class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Meet Our Team</h2>
+        <div class="row">
+            <% @team_members.each do |member| %>
+                <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <img src="<%= member.photo %>" class="card-img-top" alt="<%= member.name %>">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= member.name %></h5>
+                    <p class="card-text"><%= member.role %></p>
+                    <div>
+                        <% member.social_links.each do |platform, link| %>
+                        <a href="<%= link %>" target="_blank"><i class="bi bi-<%= platform %>"></i></a>
+                        <% end %>
+                    </div>
+                    <%= link_to 'View Profile', team_path(member), class: "btn btn-primary mt-2" %>
+                    <%= link_to "Edit Team Member", edit_team_team_member_path(@team, @team_member), class: "btn btn-secondary mt-2" %>
+                    </div>
+                </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>  

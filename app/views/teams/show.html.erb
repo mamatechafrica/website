@@ -1,0 +1,15 @@
+<div class="py-5">
+    <div class="container py-5">
+        <h2 class="text-center mb-4"><%= @team_member.name %></h2>
+        <div class="text-center">
+            <img src="<%= @team_member.photo %>" alt="<%= @team_member.name %>" class="rounded-circle mb-4" style="width: 150px;">
+            <h4><%= @team_member.role %></h4>
+            <p><%= @team_member.bio %></p>
+            <div>
+                <% @team_member.social_links.each do |platform, link| %>
+                <a href="<%= link %>" target="_blank"><i class="bi bi-<%= platform %>"></i></a>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
