@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   def home
   end
 
+
   # Handles the submission of the contact form by extracting parameters,
   # sending an email using the ContactMailer, and redirecting to the root path
   # with a success notice.

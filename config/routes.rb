@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
   resources :job_boards
+  resources :mentorship
+  resources :development
+  resources :teams, only: [ :index, :show, :edit, :update ] do
+    resources :team_members, only: [ :edit, :update ]
+  end
+
   root "pages#home"
 
+  get "teams", to: "teams#index"
   get "job_boards", to: "job_boards#show"
+  get "mentorship", to: "pages#mentorship"
+  get "development", to: "pages#development"
+
+
 
   # Route for the contact form submission
   # get '/contact', to: 'pages#new_contact', as: 'new_contact'
