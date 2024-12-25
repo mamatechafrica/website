@@ -1,6 +1,10 @@
-<!-- Hero Section -->
-<header class="bg-black text-white text-center pt-5 custom-header-height" >
-    <div class="container my-5 py-5">
+<!-- Hero -->
+<header class="bg-black text-white text-center mt-4 pt-4 custom-header-height" style="position: relative; background-image: url(<%= asset_path('bg_header.png') %>); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- Dark Overlay -->
+    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
+    
+    <!-- Content -->
+    <div class="container my-5 py-5" style="position: relative; z-index: 2;">
         <h1 class="display-4">Empowering Women Through Technology</h1>
         <p class="lead py-3">Building solutions for social impact, by women, for women</p>
         <a href="#contact" class="btn btn-danger btn-lg my-3">Get in Touch</a>
