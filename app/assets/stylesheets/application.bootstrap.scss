@@ -1,5 +1,11 @@
 @import "bootstrap/scss/bootstrap"; // Include the main Bootstrap SCSS file
 @import "bootstrap-icons/font/bootstrap-icons.css"; // Include Bootstrap Icons
+@import "node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+@font-face {
+  font-family: "bootstrap-icons";
+  src: asset-url("bootstrap-icons.css");
+}
 
 .body-container {
   display: flex;
