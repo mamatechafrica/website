@@ -319,7 +319,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap-icons (~> 1.0.14)
-  brakeman (~> 6.2.2)
+  brakeman
   capybara
   cssbundling-rails
   debug
