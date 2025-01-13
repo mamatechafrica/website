@@ -81,7 +81,7 @@
         "status": "active",
         "name": "Goodwill Contribution",
         "description": "Contribute any amount to support the mission of creating open-source solutions for social good.",
-        "amount": 0,
+        "amount": 2000,
         "currency": "USD",
         "frequency": "one-time",
         "channels": [
