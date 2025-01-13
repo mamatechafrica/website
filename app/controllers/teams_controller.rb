@@ -34,6 +34,6 @@ class TeamsController < ApplicationController
   private
 
   def team_member_params
-    params.require(:team_member).permit(:name, :role, :bio, :photo, social_links: %i[linkedin twitter github])
+    params.require(:team_member).permit(:name, :role, :bio, :photo, social_links: [ :linkedin, :twitter, :github ])
   end
 end
