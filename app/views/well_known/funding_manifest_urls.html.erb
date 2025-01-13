@@ -1,0 +1,43 @@
+
+<div class="container mt-5">
+    <h1>Funding Manifest URLs</h1>
+    <% if @data[:error] %>
+        <div class="alert alert-danger">
+            <%= @data[:error] %>
+        </div>
+        <% else %>
+        <h4>Version: <%= @data["version"] %></h4>
+        <h4>Entity Information</h4>
+        <p><strong>Name:</strong> <%= @data["entity"]["name"] %></p>
+        <p><strong>Email:</strong> <%= @data["entity"]["email"] %></p>
+        <p><strong>Phone:</strong> <%= @data["entity"]["phone"] %></p>
+        <p><strong>Description:</strong> <%= @data["entity"]["description"] %></p>
+
+        <h4>Project</h4>
+        <% @data["projects"].each do |project| %>
+            <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><%= project["name"] %></h5>
+                <p><strong>Description:</strong> <%= project["description"] %></p>
+                <p><strong>Webpage:</strong> <a href="<%= project["webpageUrl"]["url"] %>" target="_blank">Visit Project</a></p>
+                <p><strong>Repository:</strong> <a href="<%= project["repositoryUrl"]["url"] %>" target="_blank">View Repository</a></p>
+                <p><strong>Licenses:</strong> <%= project["licenses"].join(", ") %></p>
+            </div>
+            </div>
+        <% end %>
+
+        <h4>Funding Information</h4>
+        <% @data["funding"]["plans"].each do |plan| %>
+            <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><%= plan["name"] %></h5>
+                <p><strong>Description:</strong> <%= plan["description"] %></p>
+                <p><strong>Amount:</strong> <%= plan["amount"] %> <%= plan["currency"] %><%= plan["frequency"] %></p>
+                <p><strong>Channels:</strong> <%= plan["channels"].join(", ") %></p>
+            </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+
+

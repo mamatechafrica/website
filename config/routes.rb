@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "job_boards", to: "job_boards#show"
   get "mentorship", to: "pages#mentorship"
   get "development", to: "pages#development"
+  get "/.well-known/funding-manifest-urls", to: "well_known#funding_manifest_urls"
 
 
 

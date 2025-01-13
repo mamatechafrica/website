@@ -1,0 +1,105 @@
+{
+  "version": "v1.0.0",
+  "entity": {
+    "type": "individual",
+    "role": "maintainer",
+    "name": "Naijeria Toweett",
+    "email": "naijeria@mamatech.co.ke",
+    "phone": "+254712345678",
+    "description": "I am a software developer, product manager, and advocate for using technology to drive social good. My focus is on creating open-source solutions that empower communities, particularly women and girls, to address systemic issues such as gender-based violence and sexual violence. Through this project, I aim to provide a secure, accessible, and user-friendly platform for incident reporting and survivor support.",
+    "webpageUrl": {
+      "url": "https://mamatech.co.ke",
+      "wellKnown": "https://mamatech.co.ke/.well-known/funding-manifest-urls"
+    }
+  },
+  "projects": [
+    {
+      "guid": "gbv-incident-app",
+      "name": "Sauti Safe GBV/SV Incident Reporting App",
+      "description": "The GBV/Sexual Violence Incident Reporting App is an open-source platform designed to empower communities to address gender-based violence by providing a secure, anonymous, and accessible way to report incidents and streamline response workflows. The app integrates WhatsApp, a Progressive Web App (PWA), and a secure backend to ensure usability and confidentiality for survivors and organizations supporting them. This tool is being piloted with Youth Changers Kenya (YCK) and will be available for global adoption.",
+      "webpageUrl": {
+        "url": "https://mamatech.co.ke/projects/sauti-safe-app",
+        "wellKnown": "https://mamatech.co.ke/projects/sauti-safe-app/.well-known/funding-manifest-urls"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/mamatechafrica/sautisafe",
+        "wellKnown": "https://github.com/mamatechafrica/sautisafe/.well-known/funding-manifest-urls"
+      },
+      "licenses": [
+        "spdx:AGPL-3.0"
+      ],
+      "tags": [
+        "open-source",
+        "gbv",
+        "incident-reporting",
+        "pwa",
+        "community"
+      ]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "bank-transfer",
+        "type": "bank",
+        "address": "",
+        "description": "Direct bank transfers are accepted. Please email me for details."
+      },
+      {
+        "guid": "paypal-donation",
+        "type": "payment-provider",
+        "address": "",
+        "description": "Donate securely through PayPal. Recurring subscriptions are also supported."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "hosting-support",
+        "status": "active",
+        "name": "Hosting Support and 3rd party subscriptions",
+        "description": "Covers monthly hosting costs for the GBV Incident Reporting App.",
+        "amount": 300,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "Paypal-donation"
+        ]
+      },
+      {
+        "guid": "developer-support",
+        "status": "active",
+        "name": "Developer Compensation",
+        "description": "Supports the cost of developers working part-time to maintain and enhance the project.",
+        "amount": 1500,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "Bank-transfer"
+        ]
+      },
+      {
+        "guid": "goodwill-contribution",
+        "status": "active",
+        "name": "Goodwill Contribution",
+        "description": "Contribute any amount to support the mission of creating open-source solutions for social good.",
+        "amount": 2000,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": [
+          "bank-transfer",
+          "paypal-donation"
+        ]
+      }
+    ],
+    "history": [
+      {
+        "year": 2025,
+        "income": 1500,
+        "expenses": 1500,
+        "taxes": 0,
+        "currency": "USD",
+        "description": "Conceptualization and development of Pilot App"
+      }
+    ]
+  }
+}
