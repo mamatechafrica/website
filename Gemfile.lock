@@ -83,7 +83,7 @@ GEM
       msgpack (~> 1.2)
     bootstrap-icons (1.0.14)
       nokogiri (~> 1)
-    brakeman (7.0.0)
+    brakeman (7.0.1)
       racc
     builder (3.3.0)
     capybara (3.40.0)
@@ -319,7 +319,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap-icons (~> 1.0.14)
-  brakeman (~> 7.0.0)
+  brakeman (~> 7.0.1)
   capybara
   cssbundling-rails
   debug
