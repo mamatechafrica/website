@@ -50,7 +50,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem "brakeman", "~> 7.0.0", require: false
+  gem "brakeman", "~> 7.0.2", require: false
 
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
@@ -66,5 +66,5 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver", "~> 4.26"
+  gem "selenium-webdriver", "~> 4.31"
 end
