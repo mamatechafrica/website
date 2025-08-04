@@ -1,0 +1,191 @@
+<!-- Avo Community Projects Case Studies -->
+<section class="py-5">
+    <div class="container">
+        <!-- Header Section -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h1 class="display-4 mb-3" style="color: #cd1a29;">Avo Community Projects</h1>
+                <p class="lead text-muted">
+                    Explore our portfolio of technology solutions developed for social impact. 
+                    Each project represents our commitment to empowering women and marginalized communities through innovation.
+                </p>
+            </div>
+        </div>
+
+        <!-- Featured Projects Section -->
+        <% if @featured_projects.any? %>
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="mb-4" style="color: #cd1a29;">Featured Projects</h2>
+                <div class="row">
+                    <% @featured_projects.each do |project| %>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <% if project.image_url.present? %>
+                                <%= image_tag project.image_url, class: "card-img-top", style: "height: 200px; object-fit: cover;" %>
+                            <% else %>
+                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <i class="bi bi-code-square text-muted" style="font-size: 3rem;"></i>
+                                </div>
+                            <% end %>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title" style="color: #cd1a29;"><%= project.title %></h5>
+                                <p class="card-text flex-grow-1"><%= truncate(project.description, length: 120) %></p>
+                                <div class="mt-auto">
+                                    <% if project.technologies.present? %>
+                                    <div class="mb-2">
+                                        <% project.technologies.each do |tech| %>
+                                            <span class="badge bg-secondary me-1"><%= tech %></span>
+                                        <% end %>
+                                    </div>
+                                    <% end %>
+                                    <%= link_to "View Project", project_path(project), class: "btn btn-danger" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
+        <!-- Filter Tabs -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <ul class="nav nav-pills justify-content-center" id="projectTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab">
+                            All Projects (<%= @projects.count %>)
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="active-tab" data-bs-toggle="pill" data-bs-target="#active" type="button" role="tab">
+                            Active (<%= @active_projects.count %>)
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="completed-tab" data-bs-toggle="pill" data-bs-target="#completed" type="button" role="tab">
+                            Completed (<%= @completed_projects.count %>)
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="tab-content" id="projectTabsContent">
+            <!-- All Projects -->
+            <div class="tab-pane fade show active" id="all" role="tabpanel">
+                <div class="row">
+                    <% @projects.each do |project| %>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <% if project.image_url.present? %>
+                                <%= image_tag project.image_url, class: "card-img-top", style: "height: 200px; object-fit: cover;" %>
+                            <% else %>
+                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <i class="bi bi-code-square text-muted" style="font-size: 3rem;"></i>
+                                </div>
+                            <% end %>
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title" style="color: #cd1a29;"><%= project.title %></h5>
+                                    <span class="badge <%= project.status == 'completed' ? 'bg-success' : project.status == 'active' ? 'bg-primary' : 'bg-warning' %>">
+                                        <%= project.status.humanize %>
+                                    </span>
+                                </div>
+                                <p class="card-text flex-grow-1"><%= truncate(project.description, length: 120) %></p>
+                                <% if project.category.present? %>
+                                    <small class="text-muted mb-2"><i class="bi bi-tag"></i> <%= project.category %></small>
+                                <% end %>
+                                <div class="mt-auto">
+                                    <% if project.technologies.present? %>
+                                    <div class="mb-2">
+                                        <% project.technologies.first(3).each do |tech| %>
+                                            <span class="badge bg-secondary me-1"><%= tech %></span>
+                                        <% end %>
+                                        <% if project.technologies.count > 3 %>
+                                            <span class="badge bg-light text-dark">+<%= project.technologies.count - 3 %> more</span>
+                                        <% end %>
+                                    </div>
+                                    <% end %>
+                                    <div class="d-flex gap-2">
+                                        <%= link_to "View Details", project_path(project), class: "btn btn-danger btn-sm" %>
+                                        <% if project.live_url.present? %>
+                                            <%= link_to "Live Demo", project.live_url, target: "_blank", class: "btn btn-outline-primary btn-sm" %>
+                                        <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <!-- Active Projects -->
+            <div class="tab-pane fade" id="active" role="tabpanel">
+                <div class="row">
+                    <% @active_projects.each do |project| %>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <% if project.image_url.present? %>
+                                <%= image_tag project.image_url, class: "card-img-top", style: "height: 200px; object-fit: cover;" %>
+                            <% else %>
+                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <i class="bi bi-code-square text-muted" style="font-size: 3rem;"></i>
+                                </div>
+                            <% end %>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title" style="color: #cd1a29;"><%= project.title %></h5>
+                                <p class="card-text flex-grow-1"><%= truncate(project.description, length: 120) %></p>
+                                <div class="mt-auto">
+                                    <%= link_to "View Project", project_path(project), class: "btn btn-danger" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <!-- Completed Projects -->
+            <div class="tab-pane fade" id="completed" role="tabpanel">
+                <div class="row">
+                    <% @completed_projects.each do |project| %>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <% if project.image_url.present? %>
+                                <%= image_tag project.image_url, class: "card-img-top", style: "height: 200px; object-fit: cover;" %>
+                            <% else %>
+                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <i class="bi bi-code-square text-muted" style="font-size: 3rem;"></i>
+                                </div>
+                            <% end %>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title" style="color: #cd1a29;"><%= project.title %></h5>
+                                <p class="card-text flex-grow-1"><%= truncate(project.description, length: 120) %></p>
+                                <div class="mt-auto">
+                                    <%= link_to "View Case Study", project_path(project), class: "btn btn-danger" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <% if @projects.empty? %>
+        <div class="row">
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-folder-x" style="font-size: 4rem; color: #cd1a29;"></i>
+                <h3 class="mt-3 text-muted">No Projects Yet</h3>
+                <p class="text-muted">We're working on exciting projects. Check back soon!</p>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</section>

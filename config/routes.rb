@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :job_boards
   resources :mentorship
   resources :development
+  resources :projects, only: [ :index, :show ]
   resources :teams, only: [ :index, :show, :edit, :update ] do
     resources :team_members, only: [ :edit, :update ]
   end
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   get "job_boards", to: "job_boards#show"
   get "mentorship", to: "pages#mentorship"
   get "development", to: "pages#development"
+  get "projects", to: "projects#index"
+  get "avo-community", to: "projects#index", as: "avo_community"
   get "/.well-known/funding-manifest-urls", to: "well_known#funding_manifest_urls"
 
 

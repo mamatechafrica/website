@@ -1,0 +1,201 @@
+<!-- Project Detail Page with Carousel -->
+<section class="py-5">
+    <div class="container">
+        <!-- Back Navigation -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <%= link_to projects_path, class: "btn btn-outline-secondary" do %>
+                    <i class="bi bi-arrow-left"></i> Back to Projects
+                <% end %>
+            </div>
+        </div>
+
+        <!-- Project Header -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <h1 class="display-5" style="color: #cd1a29;"><%= @project.title %></h1>
+                    <span class="badge fs-6 <%= @project.status == 'completed' ? 'bg-success' : @project.status == 'active' ? 'bg-primary' : 'bg-warning' %>">
+                        <%= @project.status.humanize %>
+                    </span>
+                </div>
+                <p class="lead text-muted"><%= @project.description %></p>
+                
+                <!-- Project Meta Information -->
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <% if @project.category.present? %>
+                        <p><strong>Category:</strong> <%= @project.category %></p>
+                        <% end %>
+                        <% if @project.client_name.present? %>
+                        <p><strong>Client:</strong> <%= @project.client_name %></p>
+                        <% end %>
+                        <% if @project.start_date.present? %>
+                        <p><strong>Start Date:</strong> <%= @project.start_date.strftime("%B %Y") %></p>
+                        <% end %>
+                        <% if @project.completion_date.present? %>
+                        <p><strong>Completion Date:</strong> <%= @project.completion_date.strftime("%B %Y") %></p>
+                        <% end %>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Technologies Used -->
+                        <% if @project.technologies.present? %>
+                        <p><strong>Technologies:</strong></p>
+                        <div class="mb-3">
+                            <% @project.technologies.each do |tech| %>
+                                <span class="badge bg-secondary me-1 mb-1"><%= tech %></span>
+                            <% end %>
+                        </div>
+                        <% end %>
+                        
+                        <!-- Action Buttons -->
+                        <div class="d-flex gap-2 flex-wrap">
+                            <% if @project.live_url.present? %>
+                                <%= link_to @project.live_url, target: "_blank", class: "btn btn-danger" do %>
+                                    <i class="bi bi-globe"></i> View Live Project
+                                <% end %>
+                            <% end %>
+                            <% if @project.repo_url.present? %>
+                                <%= link_to @project.repo_url, target: "_blank", class: "btn btn-outline-dark" do %>
+                                    <i class="bi bi-github"></i> View Repository
+                                <% end %>
+                            <% end %>
+                            <% if @project.demo_url.present? %>
+                                <%= link_to @project.demo_url, target: "_blank", class: "btn btn-outline-primary" do %>
+                                    <i class="bi bi-play-circle"></i> Watch Demo
+                                <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Screenshots Carousel -->
+        <% if @project.screenshots.present? && @project.screenshots.any? %>
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3 class="mb-4" style="color: #cd1a29;">Project Screenshots</h3>
+                <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <% @project.screenshots.each_with_index do |screenshot, index| %>
+                            <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="<%= index %>" 
+                                    class="<%= 'active' if index == 0 %>" aria-current="<%= 'true' if index == 0 %>" 
+                                    aria-label="Slide <%= index + 1 %>"></button>
+                        <% end %>
+                    </div>
+                    <div class="carousel-inner rounded">
+                        <% @project.screenshots.each_with_index do |screenshot, index| %>
+                            <div class="carousel-item <%= 'active' if index == 0 %>">
+                                <%= image_tag screenshot, class: "d-block w-100", style: "height: 500px; object-fit: contain; background-color: #f8f9fa;" %>
+                            </div>
+                        <% end %>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
+        <!-- Project Details -->
+        <div class="row">
+            <div class="col-lg-8">
+                <% if @project.detailed_description.present? %>
+                <h3 class="mb-4" style="color: #cd1a29;">Project Details</h3>
+                <div class="bg-light p-4 rounded mb-4">
+                    <%= simple_format(@project.detailed_description) %>
+                </div>
+                <% end %>
+
+                <% if @project.impact_statement.present? %>
+                <h3 class="mb-4" style="color: #cd1a29;">Social Impact</h3>
+                <div class="bg-danger bg-opacity-10 p-4 rounded mb-4 border-start border-danger border-4">
+                    <%= simple_format(@project.impact_statement) %>
+                </div>
+                <% end %>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="mb-0">Project Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <% if @project.status.present? %>
+                        <div class="mb-3">
+                            <strong>Status:</strong>
+                            <span class="badge <%= @project.status == 'completed' ? 'bg-success' : @project.status == 'active' ? 'bg-primary' : 'bg-warning' %>">
+                                <%= @project.status.humanize %>
+                            </span>
+                        </div>
+                        <% end %>
+                        
+                        <% if @project.category.present? %>
+                        <div class="mb-3">
+                            <strong>Category:</strong><br>
+                            <span class="text-muted"><%= @project.category %></span>
+                        </div>
+                        <% end %>
+                        
+                        <% if @project.start_date.present? %>
+                        <div class="mb-3">
+                            <strong>Project Duration:</strong><br>
+                            <span class="text-muted">
+                                <%= @project.start_date.strftime("%B %Y") %>
+                                <% if @project.completion_date.present? %>
+                                    - <%= @project.completion_date.strftime("%B %Y") %>
+                                <% else %>
+                                    - Present
+                                <% end %>
+                            </span>
+                        </div>
+                        <% end %>
+                        
+                        <% if @project.client_name.present? %>
+                        <div class="mb-3">
+                            <strong>Client:</strong><br>
+                            <span class="text-muted"><%= @project.client_name %></span>
+                        </div>
+                        <% end %>
+                        
+                        <!-- Share Project -->
+                        <div class="mt-4 pt-3 border-top">
+                            <strong>Share this project:</strong><br>
+                            <div class="d-flex gap-2 mt-2">
+                                <a href="https://twitter.com/intent/tweet?text=Check out this amazing project: <%= @project.title %>&url=<%= request.original_url %>" 
+                                   target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=<%= request.original_url %>" 
+                                   target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="navigator.clipboard.writeText('<%= request.original_url %>')">
+                                    <i class="bi bi-link-45deg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Related Projects -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4" style="color: #cd1a29;">More Projects</h3>
+                <div class="text-center">
+                    <%= link_to "View All Projects", projects_path, class: "btn btn-danger btn-lg" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
