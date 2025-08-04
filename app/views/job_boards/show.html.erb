@@ -1,10 +1,83 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, @job_board.title %>
 
-<%= render @job_board %>
+<div class="container py-5">
+  <% if notice %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= notice %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  <% end %>
 
-<div>
-  <%= link_to "Edit this job board", edit_job_board_path(@job_board) %> |
-  <%= link_to "Back to job boards", job_boards_path %>
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to "Job Board", job_boards_path %></li>
+          <li class="breadcrumb-item active" aria-current="page"><%= @job_board.title %></li>
+        </ol>
+      </nav>
 
-  <%= button_to "Destroy this job board", @job_board, method: :delete %>
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <div>
+              <h1 class="card-title"><%= @job_board.title %></h1>
+              <h5 class="text-muted"><%= @job_board.company %></h5>
+            </div>
+            <div class="text-end">
+              <%= link_to "Edit", edit_job_board_path(@job_board), class: "btn btn-outline-danger btn-sm me-2" %>
+              <%= link_to "Delete", @job_board, method: :delete, 
+                          data: { confirm: "Are you sure?" }, 
+                          class: "btn btn-outline-secondary btn-sm" %>
+            </div>
+          </div>
+
+          <% if @job_board.location.present? || @job_board.salary.present? %>
+            <div class="row mb-4">
+              <% if @job_board.location.present? %>
+                <div class="col-md-6">
+                  <strong><i class="bi bi-geo-alt"></i> Location:</strong>
+                  <span><%= @job_board.location %></span>
+                </div>
+              <% end %>
+              <% if @job_board.salary.present? %>
+                <div class="col-md-6">
+                  <strong><i class="bi bi-cash"></i> Salary:</strong>
+                  <span><%= @job_board.salary %></span>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+          <% if @job_board.description.present? %>
+            <div class="mb-4">
+              <h5>Job Description</h5>
+              <div class="job-description">
+                <%= simple_format(@job_board.description) %>
+              </div>
+            </div>
+          <% end %>
+
+          <% if @job_board.requirements.present? %>
+            <div class="mb-4">
+              <h5>Requirements</h5>
+              <div class="job-requirements">
+                <%= simple_format(@job_board.requirements) %>
+              </div>
+            </div>
+          <% end %>
+
+          <% if @job_board.index.present? %>
+            <div class="mb-3">
+              <span class="badge bg-danger"><%= @job_board.index %></span>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="card-footer bg-transparent">
+          <%= link_to "Back to Job Board", job_boards_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :job_boards
   resources :mentorship
   resources :development
-  resources :teams, only: [ :index, :show, :edit, :update ] do
+  resources :teams do
     resources :team_members, only: [ :edit, :update ]
   end
 
   root "pages#home"
 
+  # Avo Community routes
+  get "community", to: "posts#index"
   get "teams", to: "teams#index"
-  get "job_boards", to: "job_boards#show"
+  get "job_boards", to: "job_boards#index"
   get "mentorship", to: "pages#mentorship"
   get "development", to: "pages#development"
   get "/.well-known/funding-manifest-urls", to: "well_known#funding_manifest_urls"

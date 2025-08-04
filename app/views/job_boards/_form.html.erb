@@ -1,22 +1,56 @@
-<%= form_with(model: job_board) do |form| %>
-  <% if job_board.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(job_board.errors.count, "error") %> prohibited this job_board from being saved:</h2>
+<!-- job_boards/_form.html.erb -->
 
-      <ul>
-        <% job_board.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form_with(model: job_board, local: true, class: "row g-3") do |form| %>
+  <% if job_board.errors.any? %>
+    <div class="col-12">
+      <div class="alert alert-danger" role="alert">
+        <h5>Please fix the following errors:</h5>
+        <ul class="mb-0">
+          <% job_board.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :index, style: "display: block" %>
-    <%= form.text_field :index %>
+  <div class="col-12">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Job title" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-md-6">
+    <%= form.label :company, class: "form-label" %>
+    <%= form.text_field :company, class: "form-control", placeholder: "Company name" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :location, class: "form-label" %>
+    <%= form.text_field :location, class: "form-control", placeholder: "Location (e.g., Remote, Nairobi, Kenya)" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :salary, class: "form-label" %>
+    <%= form.text_field :salary, class: "form-control", placeholder: "Salary range (optional)" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :index, class: "form-label" %>
+    <%= form.text_field :index, class: "form-control", placeholder: "Job category/type" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", rows: 4, placeholder: "Job description" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :requirements, class: "form-label" %>
+    <%= form.text_area :requirements, class: "form-control", rows: 4, placeholder: "Job requirements and qualifications" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.submit class: "btn btn-danger me-2" %>
+    <%= link_to "Cancel", job_boards_path, class: "btn btn-secondary" %>
   </div>
 <% end %>

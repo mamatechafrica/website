@@ -1,25 +1,73 @@
-<div class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Meet Our Team</h2>
-        <div class="row">
-            <% @team_members.each do |member| %>
-                <div class="col-md-4 mb-4">
-                <div class="card text-center">
-                    <img src="<%= member.photo %>" class="card-img-top" alt="<%= member.name %>">
-                    <div class="card-body">
-                    <h5 class="card-title"><%= member.name %></h5>
-                    <p class="card-text"><%= member.role %></p>
-                    <div>
-                        <% member.social_links.each do |platform, link| %>
-                        <a href="<%= link %>" target="_blank"><i class="bi bi-<%= platform %>"></i></a>
-                        <% end %>
-                    </div>
-                    <%= link_to 'View Profile', team_path(member), class: "btn btn-primary mt-2" %>
-                    <%= link_to "Edit Team Member", edit_team_team_member_path(@team, @team_member), class: "btn btn-secondary mt-2" %>
-                    </div>
-                </div>
-                </div>
-            <% end %>
-        </div>
+<% content_for :title, "Team Profiles" %>
+
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="text-black">Meet Our Team</h1>
+    <%= link_to "Add Team Member", new_team_path, class: "btn btn-danger" %>
+  </div>
+
+  <% if notice %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= notice %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
+  <% end %>
+
+  <% if alert %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= alert %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <% if @team_members.any? %>
+      <% @team_members.each do |member| %>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card text-center h-100">
+            <% if member.photo.present? %>
+              <img src="<%= member.photo %>" class="card-img-top" alt="<%= member.name %>" style="height: 200px; object-fit: cover;">
+            <% else %>
+              <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                <i class="bi bi-person-circle" style="font-size: 4rem; color: #ccc;"></i>
+              </div>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= member.name %></h5>
+              <p class="card-text text-muted"><%= member.role %></p>
+              <% if member.bio.present? %>
+                <p class="card-text"><%= truncate(member.bio, length: 80) %></p>
+              <% end %>
+              <% if member.social_links.present? %>
+                <div class="mb-3">
+                  <% member.social_links.each do |platform, link| %>
+                    <% if link.present? %>
+                      <a href="<%= link %>" target="_blank" class="me-2">
+                        <i class="bi bi-<%= platform %>" style="font-size: 1.2rem;"></i>
+                      </a>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div class="card-footer bg-transparent">
+              <%= link_to "View Profile", team_path(member), class: "btn btn-outline-danger btn-sm me-2" %>
+              <%= link_to "Edit", edit_team_path(member), class: "btn btn-outline-secondary btn-sm me-2" %>
+              <%= link_to "Delete", team_path(member), method: :delete, 
+                          data: { confirm: "Are you sure?" }, 
+                          class: "btn btn-outline-danger btn-sm" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="col-12">
+        <div class="text-center py-5">
+          <h3 class="text-muted">No team members yet</h3>
+          <p class="text-muted">Add the first team member to get started!</p>
+          <%= link_to "Add First Team Member", new_team_path, class: "btn btn-danger" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>  

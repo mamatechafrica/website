@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_15_233041) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_04_220925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -25,6 +25,21 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_15_233041) do
 
   create_table "job_boards", force: :cascade do |t|
     t.string "index"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.text "description"
+    t.text "requirements"
+    t.string "location"
+    t.string "salary"
+    t.string "company"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "author"
+    t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
