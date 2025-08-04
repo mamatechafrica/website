@@ -1,4 +1,4 @@
-<!-- Project Detail Page with Carousel -->
+    <!-- Project Detail Page with Carousel -->
 <section class="py-5">
     <div class="container">
         <!-- Back Navigation -->
@@ -87,10 +87,11 @@
                     <div class="carousel-inner rounded">
                         <% @project.screenshots.each_with_index do |screenshot, index| %>
                             <div class="carousel-item <%= 'active' if index == 0 %>">
-                                <%= image_tag screenshot, class: "d-block w-100", style: "height: 500px; object-fit: contain; background-color: #f8f9fa;" %>
+                                <%= image_tag screenshot, alt: "#{@project.title} Screenshot #{index + 1}", class: "d-block w-100", style: "height: 500px; object-fit: contain; background-color: #f8f9fa;" %>
                             </div>
                         <% end %>
                     </div>
+                    <% if @project.screenshots.length > 1 %>
                     <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
@@ -99,6 +100,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                    <% end %>
                 </div>
             </div>
         </div>
@@ -178,7 +180,7 @@
                                    target="_blank" class="btn btn-outline-primary btn-sm">
                                     <i class="bi bi-linkedin"></i>
                                 </a>
-                                <button class="btn btn-outline-secondary btn-sm" onclick="navigator.clipboard.writeText('<%= request.original_url %>')">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipboard('<%= request.original_url %>')">
                                     <i class="bi bi-link-45deg"></i>
                                 </button>
                             </div>
@@ -199,3 +201,22 @@
         </div>
     </div>
 </section>
+
+<script>
+    function copyToClipboard(text) {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Link copied to clipboard!');
+            });
+        } else {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('Link copied to clipboard!');
+        }
+    }
+</script>
