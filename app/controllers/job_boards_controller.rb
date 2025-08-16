@@ -65,6 +65,6 @@ class JobBoardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def job_board_params
-      params.require(:job_board).permit(:index)
+      params.require(:job_board).permit(:title, :description, :requirements, :location, :salary, :company, :index)
     end
 end

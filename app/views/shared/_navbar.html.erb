@@ -13,7 +13,16 @@
             <%= link_to "About Us", root_path(anchor: "about"), class: "nav-link me-5 text-lg" %>
             <%= link_to "Services", root_path(anchor: "services"), class: "nav-link me-5 text-lg" %>
             <%= link_to "Contact", root_path(anchor: "contact"), class: "nav-link me-5 text-lg" %>
-            <%= link_to "Job Board", job_boards_path, class: "nav-link me-5 text-lg" %>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle me-5 text-lg" href="#" id="communityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Avo Community
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="communityDropdown">
+                    <li><%= link_to "Community Posts", community_path, class: "dropdown-item" %></li>
+                    <li><%= link_to "Job Board", job_boards_path, class: "dropdown-item" %></li>
+                    <li><%= link_to "Team Profiles", teams_path, class: "dropdown-item" %></li>
+                </ul>
+            </div>
             <div>
                 <%= link_to "Join Us", root_path(anchor: "contact"), class: "btn btn-danger text-white me-5" %>
             </div>

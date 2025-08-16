@@ -1,11 +1,25 @@
 <% content_for :title, "New job board" %>
 
-<h1>New job board</h1>
+<% content_for :title, "Post New Job" %>
 
-<%= render "form", job_board: @job_board %>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to "Job Board", job_boards_path %></li>
+          <li class="breadcrumb-item active" aria-current="page">Post New Job</li>
+        </ol>
+      </nav>
 
-<br>
-
-<div>
-  <%= link_to "Back to job boards", job_boards_path %>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title mb-0">Post New Job</h2>
+        </div>
+        <div class="card-body">
+          <%= render "form", job_board: @job_board %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

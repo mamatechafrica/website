@@ -1,4 +1,4 @@
-<% content_for :title, "Edit Team Member" %>
+<% content_for :title, "Add Team Member" %>
 
 <div class="container py-5">
   <div class="row justify-content-center">
@@ -6,17 +6,16 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><%= link_to "Team Profiles", teams_path %></li>
-          <li class="breadcrumb-item"><%= link_to @team_member.name, @team_member %></li>
-          <li class="breadcrumb-item active" aria-current="page">Edit</li>
+          <li class="breadcrumb-item active" aria-current="page">Add Team Member</li>
         </ol>
       </nav>
 
       <div class="card">
         <div class="card-header">
-          <h2 class="card-title mb-0">Edit Team Member</h2>
+          <h2 class="card-title mb-0">Add New Team Member</h2>
         </div>
         <div class="card-body">
-          <%= form_with(model: @team_member, local: true, class: "row g-3") do |form| %>
+          <%= form_with(model: @team_member, url: teams_path, local: true, class: "row g-3") do |form| %>
             <% if @team_member.errors.any? %>
               <div class="col-12">
                 <div class="alert alert-danger" role="alert">
@@ -32,54 +31,47 @@
 
             <div class="col-md-6">
               <%= form.label :name, class: "form-label" %>
-              <%= form.text_field :name, class: "form-control" %>
+              <%= form.text_field :name, class: "form-control", placeholder: "Full name" %>
             </div>
 
             <div class="col-md-6">
               <%= form.label :role, class: "form-label" %>
-              <%= form.text_field :role, class: "form-control" %>
+              <%= form.text_field :role, class: "form-control", placeholder: "Job title/role" %>
             </div>
 
             <div class="col-12">
               <%= form.label :bio, class: "form-label" %>
-              <%= form.text_area :bio, class: "form-control", rows: 4 %>
+              <%= form.text_area :bio, class: "form-control", rows: 4, placeholder: "Brief bio/description" %>
             </div>
 
             <div class="col-12">
               <%= form.label :photo, class: "form-label" %>
-              <%= form.url_field :photo, class: "form-control" %>
+              <%= form.url_field :photo, class: "form-control", placeholder: "Photo URL (optional)" %>
               <div class="form-text">Enter a URL to a profile photo</div>
             </div>
 
             <div class="col-12">
-              <h5>Social Links</h5>
+              <h5>Social Links (Optional)</h5>
             </div>
 
             <div class="col-md-4">
               <%= form.label "social_links[linkedin]", "LinkedIn", class: "form-label" %>
-              <%= form.text_field "social_links[linkedin]", 
-                    value: @team_member.social_links&.dig("linkedin"), 
-                    class: "form-control" %>
+              <%= form.text_field "social_links[linkedin]", class: "form-control", placeholder: "LinkedIn profile URL" %>
             </div>
 
             <div class="col-md-4">
               <%= form.label "social_links[twitter]", "Twitter", class: "form-label" %>
-              <%= form.text_field "social_links[twitter]", 
-                    value: @team_member.social_links&.dig("twitter"), 
-                    class: "form-control" %>
+              <%= form.text_field "social_links[twitter]", class: "form-control", placeholder: "Twitter profile URL" %>
             </div>
 
             <div class="col-md-4">
               <%= form.label "social_links[github]", "GitHub", class: "form-label" %>
-              <%= form.text_field "social_links[github]", 
-                    value: @team_member.social_links&.dig("github"), 
-                    class: "form-control" %>
+              <%= form.text_field "social_links[github]", class: "form-control", placeholder: "GitHub profile URL" %>
             </div>
 
             <div class="col-12">
-              <%= form.submit "Update Team Member", class: "btn btn-danger me-2" %>
-              <%= link_to "View Profile", @team_member, class: "btn btn-outline-danger me-2" %>
-              <%= link_to "Cancel", @team_member, class: "btn btn-secondary" %>
+              <%= form.submit "Add Team Member", class: "btn btn-danger me-2" %>
+              <%= link_to "Cancel", teams_path, class: "btn btn-secondary" %>
             </div>
           <% end %>
         </div>

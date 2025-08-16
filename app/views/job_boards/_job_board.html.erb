@@ -1,7 +1,21 @@
-<div id="<%= dom_id job_board %>">
-  <p>
-    <strong>Index:</strong>
-    <%= job_board.index %>
-  </p>
-
+<div id="<%= dom_id job_board %>" class="job-board-item">
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= job_board.title %></h5>
+      <% if job_board.company.present? %>
+        <h6 class="card-subtitle mb-2 text-muted"><%= job_board.company %></h6>
+      <% end %>
+      <% if job_board.location.present? %>
+        <p class="card-text">
+          <i class="bi bi-geo-alt"></i> <%= job_board.location %>
+        </p>
+      <% end %>
+      <% if job_board.description.present? %>
+        <p class="card-text"><%= truncate(job_board.description, length: 120) %></p>
+      <% end %>
+      <% if job_board.index.present? %>
+        <span class="badge bg-secondary"><%= job_board.index %></span>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,27 +1,58 @@
 <!-- job_boards/index.html.erb -->
 
-<div class="job-boards-page">
-  <p style="color: green"><%= notice %></p>
+<% content_for :title, "Job Board" %>
 
-  <% content_for :title, "Job boards" %>
-  <!-- Job Board -->
-  <br> 
-  <section id="about" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-4 text-black">The Mama Tech Job Board</h2>
-        <p class="p-text">
-        <img src="<%= asset_path('coming_soon.jpg') %>" alt="Job Board Image" class="img-fluid full-screen-image">
-        </p>
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="text-black">Mama Tech Job Board</h1>
+    <%= link_to "Post a Job", new_job_board_path, class: "btn btn-danger" %>
+  </div>
+
+  <% if notice %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= notice %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
-  </section>
-  <div id="job_boards">
-    <% @job_boards.each do |job_board| %>
-      <%= render job_board %>
-      <p>
-        <%= link_to "Show this job board", job_board %>
-      </p>
+  <% end %>
+
+  <div class="row">
+    <% if @job_boards.any? %>
+      <% @job_boards.each do |job_board| %>
+        <div class="col-lg-6 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= job_board.title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= job_board.company %></h6>
+              <% if job_board.location.present? %>
+                <p class="card-text">
+                  <i class="bi bi-geo-alt"></i> <%= job_board.location %>
+                </p>
+              <% end %>
+              <% if job_board.salary.present? %>
+                <p class="card-text">
+                  <i class="bi bi-cash"></i> <%= job_board.salary %>
+                </p>
+              <% end %>
+              <p class="card-text"><%= truncate(job_board.description, length: 120) %></p>
+            </div>
+            <div class="card-footer bg-transparent">
+              <%= link_to "View Details", job_board, class: "btn btn-outline-danger me-2" %>
+              <%= link_to "Edit", edit_job_board_path(job_board), class: "btn btn-sm btn-outline-secondary me-2" %>
+              <%= link_to "Delete", job_board, method: :delete, 
+                          data: { confirm: "Are you sure?" }, 
+                          class: "btn btn-sm btn-outline-danger" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="col-12">
+        <div class="text-center py-5">
+          <h3 class="text-muted">No job postings yet</h3>
+          <p class="text-muted">Be the first to post a job opportunity!</p>
+          <%= link_to "Post First Job", new_job_board_path, class: "btn btn-danger" %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
-
-<!-- <%= link_to "New job board", new_job_board_path %> -->
